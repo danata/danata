@@ -25,10 +25,8 @@ Download
 --------
 
 T.B.D.
-<!---
-[//]: # Get the latest version of NetworkX from
-[//]: # https://pypi.python.org/pypi/networkx/
---->
+[//]: # Get the latest version of Danata from
+[//]: # https://pypi.python.org/pypi/danata/
 
 ::
 
@@ -44,16 +42,13 @@ Decorator package is required for Danata.
 
 ::
 
-<!---
     $ pip install decorator
---->
 
 Usage
 -----
 
 A quick example that finds the shortest path between two nodes in an undirected graph::
 
-<!---
    >>> import networkx as nx
    >>> G = nx.Graph()
    >>> G.add_edge('A', 'B', weight=4)
@@ -62,31 +57,22 @@ A quick example that finds the shortest path between two nodes in an undirected 
    >>> G.add_edge('C', 'D', weight=4)
    >>> nx.shortest_path(G, 'A', 'D', weight='weight')
    ['A', 'B', 'D']
---->
 
 
 Bugs
 ----
 
-<!---
-Our issue tracker is at https://github.com/networkx/networkx/issues.
+Our issue tracker is at https://github.com/danata/danata/issues.
 Please report any bugs that you find.  Or, even better, fork the repository on
 GitHub and create a pull request.  We welcome all changes, big or small, and we
 will help you make the pull request if you are new to git
 (just ask on the issue).
---->
 
 License
 -------
 
 T.B.D.
-<!---
-[//]: # Distributed with a BSD license; see LICENSE.txt::
+[//]: # Distributed with a ... license; see LICENSE.txt::
 [//]: #
-[//]: #   Copyright (C) 2004-2016 NetworkX Developers
-[//]: #   Aric Hagberg <hagberg@lanl.gov>
-[//]: #   Dan Schult <dschult@colgate.edu>
-[//]: #   Pieter Swart <swart@lanl.gov>
-[//]: #
-[//]: #.. _here: http://webchat.freenode.net?channels=%23networkx
---->
+[//]: #   Copyright (C) 2016 Danata Developers
+[//]: #   Youngsung Kim<grnydawn@gmail.com>
