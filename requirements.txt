@@ -1,13 +1,6 @@
 decorator>=3.4.0
-matplotlib
-scipy
-numpy
 pytest
-pandas
-gdal
-pyyaml
-pygraphviz
+pylint
 sphinx
 sphinxcontrib-bibtex
 sphinx_rtd_theme
-pydotplus
