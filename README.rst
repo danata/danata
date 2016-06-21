@@ -1,7 +1,7 @@
 Danata
 ========
 
-Danata is a Python package for the information transformation based on graph data structures.
+Danata is a Python package for the transformation of information based on graph data structures.
 
 Documentation
    http://danata.github.io
