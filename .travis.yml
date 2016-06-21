@@ -13,10 +13,10 @@ cache:
     - $HOME/.cache/pip
 
 install:
-    - echo "INSTALL"
+    - pip install pytest
 
 script:
-    - echo "SCRIPT"
+    - py.test testing
 
 notifications:
     email:
