@@ -30,10 +30,9 @@ if sys.version_info[:2] < (2, 7):
 del sys
 
 # Release data
-from networkx import release
+from danata import release
 
-__author__ = '%s <%s>\n%s <%s>\n%s <%s>' % \
-    (release.authors['Youngsung'])
+__author__ = '%s <%s>' % release.authors['Youngsung']
 __license__ = release.license
 
 __date__ = release.date

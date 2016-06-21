@@ -188,8 +188,7 @@ which can help the process of read-transform-write data conviniently.
 
 """
 license = 'T.B.D'
-authors = {'Youngsung' : ('Youngsung Kim','grnydawn@gmail.com'),
-           }
+authors = {'Youngsung' : ('Youngsung Kim','grnydawn@gmail.com') }
 maintainer = "Danata Developers"
 maintainer_email = "danata-discuss@googlegroups.com"
 url = 'http://danata.github.io/'

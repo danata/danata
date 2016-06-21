@@ -34,3 +34,5 @@ danata.egg-info/
 
 #Spyder project file
 .spyderproject
+
+.cache
