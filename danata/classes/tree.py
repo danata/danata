@@ -14,7 +14,7 @@ The Tree class for constructing a tree data structure based on NetworkX OrderedD
 import networkx as nx
 
 class Tree(nx.OrderedDiGraph):
-    """Base class for tree data structure
+    """Base class for tree-based data structure
 
 
     """
