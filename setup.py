@@ -31,11 +31,10 @@ version = release.write_versionfile()
 sys.path.pop(0)
 
 packages=["danata",
+          "danata.classes",
           "danata.transform",
           "danata.external",
           "danata.readwrite",
-          "danata.tests",
-          "danata.testing",
           "danata.utils"]
 
 docdirbase  = 'share/doc/danata-%s' % version
@@ -53,13 +52,7 @@ for d in ['basic',
     data.append((dd, glob(os.path.join(pp ,"*.edgelist"))))
 
 # add the tests
-package_data     = {
-    'danata': ['tests/*.py'],
-    'danata.transform': ['tests/*.py'],
-    'danata.readwrite': ['tests/*.py'],
-    'danata.testing': ['tests/*.py'],
-    'danata.utils': ['tests/*.py']
-    }
+#package_data     = { 'danata': ['tests/*.py'] }
 
 install_requires = ['decorator>=3.4.0']
 
@@ -82,9 +75,10 @@ if __name__ == "__main__":
         classifiers      = release.classifiers,
         packages         = packages,
         data_files       = data,
-        package_data     = package_data,
+#        package_data     = package_data,
         install_requires = install_requires,
-        test_suite       = 'nose.collector',
-        tests_require    = ['nose>=0.10.1'],
+        setup_requires   = ['pytest-runner'],
+#        test_suite       = 'testing',
+        tests_require    = ['pytest'],
         zip_safe         = False
     )

@@ -5,17 +5,9 @@ include README.rst
 
 recursive-include examples *.py *.edgelist *.mbox *.gz *.bz2 *.zip
 recursive-include doc *.py *.rst Makefile *.html *.png *.txt *.css *.inc
+recursive-include testing *.py *.txt *.bz2
 
 include scripts/*
-include danata/tests/*.txt
-include danata/tests/*.py
-include danata/*/tests/*.txt
-include danata/*/tests/*.py
-include danata/*/*/tests/*.txt
-include danata/*/*/tests/*.py
-include danata/*/*/tests/*.A99
-include danata/*/*/tests/*.B99
-include danata/*/*/tests/*.bz2
 
 global-exclude *~
 global-exclude *.pyc
