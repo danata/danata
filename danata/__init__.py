@@ -42,12 +42,12 @@ __version__ = release.version
 __bibtex__ = """Not published yet."""
 
 # These are import orderwise
-from danata.exception import *
+from danata.exception import DanataException, DanataError
 import danata.external
 import danata.utils
 
 import danata.classes
-from danata.classes import *
+from danata.classes import Tree
 
 import danata.readwrite
 from danata.readwrite import *
