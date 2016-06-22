@@ -32,11 +32,11 @@ del sys
 # Release data
 from danata import release
 
-__author__ = '%s <%s>' % release.authors['Youngsung']
-__license__ = release.license
+__author__ = '%s <%s>' % release.AUTHORS['Youngsung']
+__license__ = release.LICENSE
 
-__date__ = release.date
-__version__ = release.version
+__date__ = release.DATE
+__version__ = release.VERSION
 
 __bibtex__ = """Not published yet."""
 

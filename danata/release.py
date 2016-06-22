@@ -40,11 +40,11 @@ import sys
 import time
 import datetime
 
-basedir = os.path.abspath(os.path.split(__file__)[0])
+BASEDIR = os.path.abspath(os.path.split(__file__)[0])
 
 def write_versionfile():
     """Creates a static file containing version information."""
-    versionfile = os.path.join(basedir, 'version.py')
+    versionfile = os.path.join(BASEDIR, 'version.py')
 
     text = '''"""
 Version information for Danata, created during installation.
@@ -77,17 +77,18 @@ vcs_info = %(vcs_info)r
     date, date_info, version, version_info, vcs_info = get_info(dynamic=True)
 
     def writefile():
-        fh = open(versionfile, 'w')
+        """Write version file."""
+        fobj = open(versionfile, 'w')
         subs = {
-            'dev' : dev,
+            'dev' : DEV,
             'version': version,
             'version_info': version_info,
             'date': date,
             'date_info': date_info,
             'vcs_info': vcs_info
         }
-        fh.write(text % subs)
-        fh.close()
+        fobj.write(text % subs)
+        fobj.close()
 
     if vcs_info[0] == 'mercurial':
         # Then, we want to update version.py.
@@ -97,8 +98,8 @@ vcs_info = %(vcs_info)r
             # This is *good*, and the most likely place users will be when
             # running setup.py. We do not want to overwrite version.py.
             # Grab the version so that setup can use it.
-            sys.path.insert(0, basedir)
-            from version import version
+            sys.path.insert(0, BASEDIR)
+            from .version import version
             del sys.path[0]
         else:
             # This is *bad*.  It means the user might have a tarball that
@@ -117,8 +118,8 @@ def get_revision():
     """Returns revision and vcs information, dynamically obtained."""
     vcs, revision, tag = None, None, None
 
-    hgdir = os.path.join(basedir, '..', '.hg')
-    gitdir = os.path.join(basedir, '..', '.git')
+    #hgdir = os.path.join(BASEDIR, '..', '.hg')
+    gitdir = os.path.join(BASEDIR, '..', '.git')
 
     if os.path.isdir(gitdir):
         vcs = 'git'
@@ -129,6 +130,7 @@ def get_revision():
     return revision, vcs_info
 
 def get_info(dynamic=True):
+    """Return package information."""
     ## Date information
     date_info = datetime.datetime.now()
     date = time.asctime(date_info.timetuple())
@@ -147,7 +149,7 @@ def get_info(dynamic=True):
         # This is where most final releases of NetworkX will be.
         # All info should come from version.py. If it does not exist, then
         # no vcs information will be provided.
-        sys.path.insert(0, basedir)
+        sys.path.insert(0, BASEDIR)
         try:
             from version import date, date_info, version, version_info, vcs_info
         except ImportError:
@@ -161,56 +163,56 @@ def get_info(dynamic=True):
         # We are here if:
         #   we failed to determine static versioning info, or
         #   we successfully obtained dynamic revision info
-        version = ''.join([str(major), '.', str(minor)])
-        if dev:
+        version = ''.join([str(MAJOR), '.', str(MINOR)])
+        if DEV:
             version += '.dev_' + date_info.strftime("%Y%m%d%H%M%S")
-        version_info = (name, major, minor, revision)
+        version_info = (NAME, MAJOR, MINOR, revision)
 
     return date, date_info, version, version_info, vcs_info
 
 ## Version information
-name = 'danata'
-major = "0"
-minor = "1"
+NAME = 'danata'
+MAJOR = "0"
+MINOR = "1"
 
 
 ## Declare current release as a development release.
 ## Change to False before tagging a release; then change back.
-dev = True
+DEV = True
 
 
-description = "Python package for graph-based information transformation framework"
+DESCRIPTION = "Python package for graph-based information transformation framework"
 
-long_description = \
+LONG_DESCRIPTION = \
 """
 Danata is a Python package for graph-based information transformation framework
 which can help the process of read-transform-write data conviniently.
 
 """
-license = 'T.B.D'
-authors = {'Youngsung' : ('Youngsung Kim','grnydawn@gmail.com') }
-maintainer = "Danata Developers"
-maintainer_email = "danata-discuss@googlegroups.com"
-url = 'http://danata.github.io/'
-download_url= 'T.B.D.'
-platforms = ['Linux','Mac OSX','Windows','Unix']
-keywords = ['Transformation', 'Graph Theory', 'Mathematics', 'network', 'graph', 'discrete mathematics', 'math']
-classifiers = [
-        'Development Status :: 1 - Planning Development',
-        'Intended Audience :: Developers',
-        'Intended Audience :: Science/Research',
-        'License :: T.B.D. :: T.B.D',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Topic :: Software Development :: Libraries :: Python Modules',
-        'Topic :: Scientific/Engineering :: Bigdata']
+LICENSE = 'T.B.D'
+AUTHORS = {'Youngsung' : ('Youngsung Kim', 'grnydawn@gmail.com')}
+MAINTAINER = "Danata Developers"
+MAINTAINER_EMAIL = "danata-discuss@googlegroups.com"
+URL = 'http://danata.github.io/'
+DOWNLOAD_URL = 'T.B.D.'
+PLATFORMS = ['Linux', 'Mac OSX', 'Windows', 'Unix']
+KEYWORDS = ['Transformation', 'Graph Theory', 'Mathematics', 'network', 'graph', \
+            'discrete mathematics', 'math']
+CLASSIFIERS = ['Development Status :: 1 - Planning Development',
+               'Intended Audience :: Developers',
+               'Intended Audience :: Science/Research',
+               'License :: T.B.D. :: T.B.D',
+               'Operating System :: OS Independent',
+               'Programming Language :: Python :: 2',
+               'Programming Language :: Python :: 2.7',
+               'Programming Language :: Python :: 3',
+               'Programming Language :: Python :: 3.5',
+               'Programming Language :: Python :: 3.3',
+               'Programming Language :: Python :: 3.4',
+               'Topic :: Software Development :: Libraries :: Python Modules',
+               'Topic :: Scientific/Engineering :: Bigdata']
 
-date, date_info, version, version_info, vcs_info = get_info()
+DATE, DATE_INFO, VERSION, VERSION_INFO, VCS_INFO = get_info()
 
 if __name__ == '__main__':
     # Write versionfile for nightly snapshots.

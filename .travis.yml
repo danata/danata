@@ -21,8 +21,7 @@ install:
 
 script:
     - py.test testing
-    - pylint danata; true
-    - pylint testing; true
+    - pylint danata testing; true
 
 notifications:
     email:
