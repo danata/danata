@@ -11,7 +11,7 @@ The Tree class for constructing a tree data structure based on NetworkX OrderedD
 #    Youngsung Kim<grnydawn@gmail.com>
 #    All rights reserved.
 
-from networkx import OrderedDiGraph
+from networkx.classes.ordered import OrderedDiGraph
 
 class Tree(OrderedDiGraph):
     """
