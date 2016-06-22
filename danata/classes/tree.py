@@ -3,7 +3,8 @@
 **************
 Tree
 **************
-The Tree class for constructing a tree data structure based on NetworkX OrderedDiGraph.
+Tree class for constructing a tree data structure based on NetworkX
+OrderedDiGraph.
 
 """
 
@@ -15,7 +16,7 @@ from networkx.classes.ordered import OrderedDiGraph
 
 class Tree(OrderedDiGraph):
     """
-    Base class for tree-based data structure
+    A class for graph-based tree data structure
 
     Examples
     --------
