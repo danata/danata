@@ -1,6 +1,7 @@
 decorator>=3.4.0
 pytest
 pylint
+networkx
 sphinx
 sphinxcontrib-bibtex
 sphinx_rtd_theme
