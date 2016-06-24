@@ -50,7 +50,7 @@ class Tree(OrderedDiGraph):
         """
         self.rootnode = rootnode
 
-    def add_childnode(self, parentnode, childnode):
+    def add_childnode(self, parentnode, childnode, **kwargs):
         """Add a child node to a parent node
 
         Parameters
@@ -58,5 +58,5 @@ class Tree(OrderedDiGraph):
         parentnode : input a hashable object
             parentnode is a predecessor of childnode in a tree.
         """
-        self.add_edge(parentnode, childnode)
+        self.add_edge(parentnode, childnode, **kwargs)
 
