@@ -12,6 +12,7 @@ sys.path.insert(0, DANATA_HOME)
 BLOCK_TYPES = ['body', 'orelse', 'handlers', 'decorator_list', 'bases', 'targets', 'values', \
     'finalbody', 'names', 'elts', 'generators', 'ops', 'comparators', 'args', 'keywords', \
     'dims', 'ifs', 'defaults']
+TITLE_SIZE = 24
 
 import danata
 
@@ -48,7 +49,16 @@ def add_nodes(tree, node, node_labels, edge_labels):
                         for subnode in val:
                             add_node(tree, subnode, node, key, node_labels, edge_labels)
                     except:
+                        add_node(tree, val, node, key, node_labels, edge_labels)
                         pass
+                elif key not in ['ctx']:
+                    if isinstance(val, ast.AST):
+                        add_node(tree, val, node, key, node_labels, edge_labels)
+                    else:
+                        valstr = str(val)
+                        if len(valstr)>20:
+                            valstr = '%s...'%valstr[:20]
+                        node_labels[node] += '\n%s = %s'%(key, valstr)
 
     # End of helper function
 
@@ -127,11 +137,12 @@ def main():
                     edge_labels = {}
                     add_nodes(tree, rootnode, node_labels, edge_labels)
 
-                    nx.draw_networkx(tree, tree_layout(tree), with_labels=True, labels=node_labels)
-                    nx.draw_networkx_edge_labels(tree, tree_layout(tree), edge_labels)
+                    nx.draw_networkx(tree, tree_layout(tree), with_labels=True, labels=node_labels, node_color='w')
+                    nx.draw_networkx_edge_labels(tree, tree_layout(tree), edge_labels, label=None)
             except:
                 raise
 
+    plt.title('Abstract Syntax Tree Diagram for %s'%fpath, fontsize=TITLE_SIZE)
     plt.show()
 
 if __name__ == '__main__':
