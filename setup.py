@@ -41,8 +41,7 @@ docdirbase  = 'share/doc/danata-%s' % version
 # add basic documentation
 data = [(docdirbase, glob("*.txt"))]
 # add examples
-for d in ['basic',
-          'readwrite']:
+for d in ['draw_ast']:
     dd = os.path.join(docdirbase,'examples', d)
     pp = os.path.join('examples', d)
     data.append((dd, glob(os.path.join(pp ,"*.py"))))
