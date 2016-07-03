@@ -7,8 +7,6 @@ recursive-include examples *.py *.edgelist *.mbox *.gz *.bz2 *.zip
 recursive-include doc *.py *.rst Makefile *.html *.png *.txt *.css *.inc
 recursive-include testing *.py *.txt *.bz2
 
-include scripts/*
-
 global-exclude *~
 global-exclude *.pyc
 global-exclude .svn

@@ -46,7 +46,7 @@ import danata.external
 import danata.utils
 
 import danata.classes
-from danata.classes import Tree
+from danata.classes import DNTTree, DNTReader
 
 import danata.readwrite
 from danata.readwrite import *

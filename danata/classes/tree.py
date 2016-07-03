@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 **************
-Tree
+DNTTree
 **************
-Tree class for constructing a tree data structure based on NetworkX
+DNTTree class for constructing a tree data structure based on NetworkX
 OrderedDiGraph.
 
 """
@@ -14,7 +14,7 @@ OrderedDiGraph.
 
 from networkx.classes.ordered import OrderedDiGraph
 
-class Tree(OrderedDiGraph):
+class DNTTree(OrderedDiGraph):
     """
     A class for graph-based tree data structure
 
@@ -36,7 +36,7 @@ class Tree(OrderedDiGraph):
 
         """
         self.rootnode = rootnode
-        super(Tree, self).__init__(**kwargs)
+        super(DNTTree, self).__init__(**kwargs)
 
     def set_rootnode(self, rootnode):
         """Set a rootnode

@@ -156,7 +156,7 @@ def main():
         if os.path.isfile(fpath):
             try:
                 with open(fpath, 'r') as fobj:
-                    tree = danata.Tree()
+                    tree = danata.DNTTree()
                     rootnode = ast.parse(fobj.read(), filename=fpath)
 
                     nodeinfo = {}
