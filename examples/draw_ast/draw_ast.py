@@ -104,43 +104,6 @@ def add_nodes(tree, node, nodeinfo, edgeinfo):
 #
 #    return pos
 
-# DFS
-#def tree_layout(tree):
-#
-#    def pos_node(node, px, py, pos):
-#        i = 0
-#        j = 0
-#        for i, subnode in enumerate(tree.successors(node)):
-#            pos_x = px + i + j
-#            pos_y = py - 1
-#            pos[subnode] = (pos_x, pos_y)
-#            j += pos_node(subnode, pos_x, pos_y, pos)
-#        return i+j
-#
-#    pos = {}
-#    pos[tree.rootnode] = (0, 0)
-#    pos_node(tree.rootnode, 0, 0, pos)
-#
-#    return pos
-def tree_layout(tree):
-    LINE_SPACE = 2
-    def pos_node(node, px, py, pos):
-        i = 0
-        j = 0
-        for i, subnode in enumerate(tree.successors(node)):
-            pos_x = px + 1
-            pos_y = py - i*LINE_SPACE - j
-            pos[subnode] = (pos_x, pos_y)
-            j += pos_node(subnode, pos_x, pos_y, pos)
-        return i*LINE_SPACE + j
-
-    pos = {}
-    pos[tree.rootnode] = (0, 0)
-    pos_node(tree.rootnode, 0, 0, pos)
-
-    return pos
-
-
 def main():
     """
     main function to drive overall execution
@@ -178,14 +141,14 @@ def main():
                     edge_labels = {edge: edgeinfo[edge]['label'] for edge in tree.edges()}
 
                     #import pdb; pdb.set_trace()
-                    nx.draw_networkx(tree, tree_layout(tree), with_labels=True, \
+                    nx.draw_networkx(tree, danata.tree_layout(tree), with_labels=True, \
                         labels=node_labels, node_color=node_colors)
-                    nx.draw_networkx_edge_labels(tree, tree_layout(tree), edge_labels, label=None)
+                    nx.draw_networkx_edge_labels(tree, danata.tree_layout(tree), edge_labels, label=None)
             except:
                 raise
 
-    plt.title('Abstract Syntax Tree Diagram for "%s"'%fpath, fontsize=TITLE_SIZE)
-    plt.show()
+        plt.title('Abstract Syntax Tree Diagram for "%s"'%fpath, fontsize=TITLE_SIZE)
+        plt.show()
 
 if __name__ == '__main__':
     main()

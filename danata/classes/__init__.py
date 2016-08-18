@@ -5,5 +5,6 @@
         - DNTReader
 """
 
+from ._base import Line
 from .tree import DNTTree
 from .reader import DNTReader

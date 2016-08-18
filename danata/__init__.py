@@ -42,11 +42,11 @@ __bibtex__ = """Not published yet."""
 
 # These are import orderwise
 from danata.exception import DanataException, DanataError
+from danata.utils import *
 import danata.external
-import danata.utils
 
 import danata.classes
-from danata.classes import DNTTree, DNTReader
+from danata.classes import DNTTree, DNTReader, Line
 
 import danata.readwrite
 from danata.readwrite import *

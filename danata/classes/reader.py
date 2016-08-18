@@ -2,7 +2,12 @@
 
 import subprocess
 
-class DNTReader(object):
+from _base import DNTBase
+
+class DNTReader(DNTBase):
+    """This class is a base class for all danata reader classes.
+    """
+
     def __init__(self):
         self.inputdata = None
 
@@ -16,6 +21,9 @@ class DNTReader(object):
         return out, err, proc.returncode
 
     def packshcmd(self, argv):
+        """Pack a list of argument items into a string argument.
+
+        """
         newargv = []
         for arg in argv:
             if not isinstance(arg, str):

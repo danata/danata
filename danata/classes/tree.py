@@ -38,7 +38,7 @@ class DNTTree(OrderedDiGraph):
         self.rootnode = rootnode
         super(DNTTree, self).__init__(**kwargs)
 
-    def set_rootnode(self, rootnode):
+    def set_rootnode(self, rootnode, **kwargs):
         """Set a rootnode
 
         rootnode is a direct or indirect predecessor node of all other nodes in this tree
@@ -49,6 +49,7 @@ class DNTTree(OrderedDiGraph):
             rootnode to be set as a root of this tree
         """
         self.rootnode = rootnode
+        self.add_node(rootnode, **kwargs)
 
     def add_childnode(self, parentnode, childnode, **kwargs):
         """Add a child node to a parent node
@@ -58,5 +59,6 @@ class DNTTree(OrderedDiGraph):
         parentnode : input a hashable object
             parentnode is a predecessor of childnode in a tree.
         """
-        self.add_edge(parentnode, childnode, **kwargs)
+        self.add_node(childnode, **kwargs)
+        self.add_edge(parentnode, childnode)
 
